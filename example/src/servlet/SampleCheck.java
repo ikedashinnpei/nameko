@@ -54,13 +54,15 @@ public class SampleCheck extends HttpServlet {
 		String number2 = request.getParameter("number2"); //入力２を取得
 		String enzan = request.getParameter("enzan"); //セレクトの四則演算を取得
 
-		System.out.printf("number1: %s number2: %s enzan: %s\n", number1, number2, enzan);
+		// System.out.printf("number1: %s number2: %s enzan: %s\n", number1, number2, enzan);
 
 		//入力値をプロパティーに設定
 		SampleModel sampleModel = new SampleModel();
 		sampleModel.setNumber1(Integer.parseInt(number1));
 		sampleModel.setNumber2(Integer.parseInt(number2));
 		sampleModel.setEnzan(enzan);
+
+		sampleModel.checkError();
 
 		//入力した値で計算を実行する
 		SampleEnzan sampleEnzan = new SampleEnzan();

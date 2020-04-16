@@ -7,6 +7,21 @@ public class SampleModel implements Serializable
 	private int number1,number2,reslut;
 	private String enzan;
 
+	public ErrorStatus checkError() {
+		// 1. 入力が数字かどうか
+
+		return ErrorStatus.InputError;
+
+		// 2. 入力があるかどうか
+		return ErrorStatus.NoInput;
+
+		// 3. Divide Errorチェック(x/0になってないか)
+		return ErrorStatus.DevideError;
+
+		// エラーがなければ
+		return ErrorStatus.NoError;
+	}
+
 
 	//入力１のsetとgetと場所
 	public int getNumber1() {return number1;}
@@ -23,4 +38,11 @@ public class SampleModel implements Serializable
 	//セレクトの四則演算のsetとgetと場所
 	public String getEnzan() {return this.enzan;}
 	public void setEnzan(String enzan) {this.enzan = enzan;}
+
+	public enum ErrorStatus {
+		InputError,
+		NoInput,
+		DevideError,
+		NoError
+	}
 }
