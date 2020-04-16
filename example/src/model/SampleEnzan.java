@@ -9,29 +9,36 @@ public class SampleEnzan
 		int number2 = samplemodel.getNumber2();
 		String enzan = samplemodel.getEnzan();
 
+		System.out.println(enzan);
+
 		//セレクトで選んだ奴を計算する
-		if(enzan == "add")
+		if(enzan.equals("add"))
 		{
 			int reslut = number1+number2;
 			samplemodel.setResult(reslut);
 		}
 
-		if(enzan == "minus")
+		else if(enzan.equals("minus"))
 		{
 			int reslut = number1-number2;
 			samplemodel.setResult(reslut);
 		}
 
-		if(enzan == "multiply")
+		else if(enzan.equals("multiply"))
 		{
 			int reslut = number1*number2;
 			samplemodel.setResult(reslut);
 		}
 
-		if(enzan == "divide")
+		else if(enzan.equals("divide"))
 		{
 			int reslut = number1/number2;
 			samplemodel.setResult(reslut);
+		}
+		else
+		{
+			System.out.println("Error enzan");
+			samplemodel.setResult(-1);
 		}
 	}
 

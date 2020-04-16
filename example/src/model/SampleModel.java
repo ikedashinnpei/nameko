@@ -14,11 +14,11 @@ public class SampleModel implements Serializable
 
 	//入力2のsetとgetと場所
 	public int getNumber2() {return number2;}
-	public void setNumber2(int number2) {this.number1 = number2;}
+	public void setNumber2(int number2) {this.number2 = number2;}
 
 	//計算結果のsetとgetと場所
 	public int getResult() {return reslut;}
-	public void setResult(int reslut) {this.number1 = reslut;}
+	public void setResult(int reslut) {this.reslut = reslut;}
 
 	//セレクトの四則演算のsetとgetと場所
 	public String getEnzan() {return this.enzan;}
