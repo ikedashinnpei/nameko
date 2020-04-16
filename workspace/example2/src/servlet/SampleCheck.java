@@ -1,5 +1,4 @@
-package servlet
-;
+package servlet;
 
 import java.io.IOException;
 
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.SampleEnzan;
 import model.SampleModel;
+import model.SampleModel.ErrorStatus;;
 
 /**
  * Servlet implementation class SampleCheck
@@ -57,12 +57,13 @@ public class SampleCheck extends HttpServlet {
 		// System.out.printf("number1: %s number2: %s enzan: %s\n", number1, number2, enzan);
 
 		//入力値をプロパティーに設定
-		SampleModel sampleModel = new SampleModel();
-		sampleModel.setNumber1(Integer.parseInt(number1));
-		sampleModel.setNumber2(Integer.parseInt(number2));
-		sampleModel.setEnzan(enzan);
+		SampleModel sampleModel = new SampleModel(number1, number2, enzan);
 
-		sampleModel.checkError();
+		ErrorStatus ret = sampleModel.checkError();
+
+
+
+
 
 		//入力した値で計算を実行する
 		SampleEnzan sampleEnzan = new SampleEnzan();
