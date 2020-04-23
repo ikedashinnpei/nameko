@@ -14,6 +14,6 @@ SampleModel samplemodel = (SampleModel) request.getAttribute("samplemodel"); %>
 <body>
 <h1>計算結果</h1>
 <p>計算結果は<%= samplemodel.getResult() %></p>
-<a href = "/example/SampleCheck">戻る</a>
+<a href = "/example2/SampleCheck">戻る</a>
 </body>
 </html>

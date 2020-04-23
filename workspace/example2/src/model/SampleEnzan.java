@@ -1,45 +1,33 @@
 package model;
 
-public class SampleEnzan
-{
-	public void execute(SampleModel samplemodel)
-	{
+public class SampleEnzan {
+	public static int execute(SampleModel samplemodel) {
 		//合計の計算を設定する
 		int number1 = samplemodel.getNumber1();
 		int number2 = samplemodel.getNumber2();
 		String enzan = samplemodel.getEnzan();
 
-		System.out.println(enzan);
+		int result = -1;
 
 		//セレクトで選んだ奴を計算する
-		if(enzan.equals("add"))
-		{
-			int reslut = number1+number2;
-			samplemodel.setResult(reslut);
+		if (enzan.equals("add")) {
+			result = number1 + number2;
 		}
 
-		else if(enzan.equals("minus"))
-		{
-			int reslut = number1-number2;
-			samplemodel.setResult(reslut);
+		else if (enzan.equals("minus")) {
+			result = number1 - number2;
 		}
 
-		else if(enzan.equals("multiply"))
-		{
-			int reslut = number1*number2;
-			samplemodel.setResult(reslut);
+		else if (enzan.equals("multiply")) {
+			result = number1 * number2;
 		}
 
-		else if(enzan.equals("divide"))
-		{
-			int reslut = number1/number2;
-			samplemodel.setResult(reslut);
-		}
-		else
-		{
+		else if (enzan.equals("divide")) {
+			result = number1 / number2;
+		} else {
 			System.out.println("Error enzan");
-			samplemodel.setResult(-1);
 		}
+		return result;
 	}
 
 }
