@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ page import = "model.OutputModel" %>
+
 <%
 	//リクエストスコープに保存されてるSampleModelを取得
-	String message = (String) request.getAttribute("message");
+	OutputModel model = (OutputModel) request.getAttribute("model");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
+<!--
 <script type="text/javascript">
 
 //最初に数値を見てアラート出すかの判定をしている
@@ -22,23 +27,19 @@
 		var number1 = calc_form.number1.value;
 		var number2 = calc_form.number2.value;
 		var enzan = calc_form.enzan.value;
-//		var error_msg = document.getElementById("error_msg");
 
 		if(number1 == "" || number2 == "") {
-//			error_msg.innerHTML = "何か数値を入力してください";
 			error_msg = "何か数値を入力してください";
 			alert(error_msg);
 			return false;
 		}
 
 		if(!isNumber(number1) || !isNumber(number2)) {
-//			error_msg.innerHTML = "数値を入力してください";
 			error_msg = "数値を入力してください";
 			alert(error_msg);
 			return false;
 		}
 		if(enzan == "divide" && number2 == "0") {
-//			error_msg.innerHTML = "0で割れません";
 			error_msg = "0では割れません";
 			alert(error_msg);
 			return false;
@@ -46,11 +47,21 @@
 		return true;
 	}
 </script>
+-->
+
 <title>計算入力画面</title>
 </head>
-<body>
+<body style="background-color:#00FA9A">
+<div style="background-color:red;text-align:center">
 	<h1>四則演算！！</h1>
-	<p>★数字を入力して下さい</p>
+</div>
+
+<div style="background-color:#00FFFF">
+	<p>1:入力欄に数字を入れてください</p>
+	<p>2:数字以外入力はしないでください</p>
+	<p>3:0で割り算は行えません</p>
+	<p>4:数字は半角でお願いします</p>
+</div>
 
 	<form action="/example2/SampleCheck" method="post" name="calc_form">
 
@@ -63,8 +74,11 @@
 		</select>
 		<input type="text" name="number2">
 		＝
+		<!--
 		<input type="submit" onClick="return check_value()" value="計算結果">
-		<br>
+		-->
+		<input type="submit" value="計算結果">
+		<p><span style="color:red"><%=model.getMessage() %></span></p>
 
 	</form>
 
